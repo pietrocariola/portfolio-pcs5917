@@ -105,6 +105,14 @@ ou
 
 Para tornar uma leitura mais compacta, os prompts completos, os pensamentos, e as partes não maliciosas das conversas não foram expostas aqui. Os diálogos completos estão nos arquivos em [inglês](outros/jailbreak_prompts.csv) e [português](outros/jailbreak_prompts_pt.csv), e o código para geração dos diálogos no [notebook](notebooks/aula-02-llm-jailbreaks.ipynb).
 
+## Aula 03 - ASVSpoof
+
+A atividade desta aula focou na detecção de áudios maliciosos. Arquivos de áudio ```bonafide``` e ```spoof``` foram fornecidos pelo [dataset](https://www.kaggle.com/datasets/ulianazb/asvspoof-2024) e um modelo de aprendizado de máquina foi usado para classificação dos arquivos. A metodologia utilizada foi transformar cada áudio em um log-mel spectograma, um tipo de imagem que contém a intensidade de cada frequência ao longo do tempo, passando por uma rede convolucional, que classifica o áudio em uma das duas classes.
+
+Foram utilizadas 20k amostras (16k treino, 4k validação), extraídas aleatoriamente da lista de metadados, e balanceadas entre as duas classes, durante 1 época de treino. Depois o modelo foi testado na partição ```dev``` e obteve os seguintes resultados:
+
+![](images/aula03_01.png)
+
 ## Aula 04 - nanoGCG
 
 nanoGCG usa uma técnica que procura o melhor sufixo para um prompt, fazendo com que a resposta subsequente tenha a maior chance de começar com um determinada frase, e assim levando para uma resposta maliciosa.
